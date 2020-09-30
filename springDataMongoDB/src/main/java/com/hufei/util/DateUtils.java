@@ -20,7 +20,6 @@ public class DateUtils {
         try {
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            int i = 1/0;
             time = sdf.format(date);
         } catch (Exception e) {
             log.error("生成当前日期出错，格式yyyy-MM-dd hh:mm:ss");

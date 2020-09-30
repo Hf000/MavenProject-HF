@@ -4,15 +4,24 @@ import com.hufei.dao.BarrageDao;
 import com.hufei.entity.Barrage;
 import com.hufei.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.ProfileValueSourceConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.beans.ConstructorProperties;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,8 +112,4 @@ public class BarrageDaoTest {
         }
     }
 
-    @Test
-    public void testError() {
-        System.out.println(DateUtils.getCurrentTime());
-    }
 }

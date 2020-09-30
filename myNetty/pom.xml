@@ -12,11 +12,13 @@
     <artifactId>myNetty</artifactId>
 
     <dependencies>
+        <!-- netty依赖jar -->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.50.Final</version>
         </dependency>
+        <!-- 单元测试依赖jar -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

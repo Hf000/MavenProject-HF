@@ -11,7 +11,7 @@
           http://www.springframework.org/schema/context
           https://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 加载mongodb的属性配置文件 -->
-    <context:property-placeholder location="classpath:config/mongodb.properties" />
+    <context:property-placeholder location="classpath:mongodb.properties" />
     <!-- 包扫描 -->
     <mongo:repositories base-package="com.hufei"/>
     <!--spring连接mongodb数据库配置-->
