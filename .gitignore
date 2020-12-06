@@ -1,7 +1,3 @@
-/.idea/
-/myNetty/target/
-/springDataMongoDB/target/
-/maven.iml
-/myNetty/myNetty.iml
-/springDataMongoDB/springDataMongoDB.iml
-/mavenproject.iml
+.idea/
+target/
+*.iml
