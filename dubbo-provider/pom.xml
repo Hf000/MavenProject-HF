@@ -26,6 +26,10 @@
         <mysql.version>8.0.22</mysql.version>
         <druid.version>1.2.3</druid.version>
         <tomcat-plugin.version>2.2</tomcat-plugin.version>
+        <!--<slf4j-log4j12.version>1.7.30</slf4j-log4j12.version>
+        <slf4j.version>1.2.17</slf4j.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>-->
+        <log4j.version>2.14.0</log4j.version>
     </properties>
 
     <dependencies>
@@ -132,6 +136,37 @@
                     <groupId>org.apache.zookeeper</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- 日志处理 -->
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
     </dependencies>
 
