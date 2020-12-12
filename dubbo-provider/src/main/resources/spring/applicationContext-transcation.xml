@@ -4,7 +4,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <!-- 事务管理器: 声明式事务 -->
+
     <!-- 引入dao配置文件 -->
     <import resource="applicationContext-dao.xml"></import>
     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
@@ -12,6 +12,7 @@
     </bean>
     <!--注解方式事务-->
     <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <!-- 事务管理器: 声明式事务 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED" />

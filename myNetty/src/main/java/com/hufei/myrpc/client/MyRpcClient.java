@@ -16,17 +16,27 @@ public class MyRpcClient {
     public void start(String host, int port) {
         EventLoopGroup worker = null;
         try {
-            worker = new NioEventLoopGroup();//创建工作线程组
-            Bootstrap bootstrap = new Bootstrap(); //开启client客户端
-            bootstrap.group(worker)                         //设置工作线程组
-                    .channel(NioSocketChannel.class)        //设置socket通道
-                    .handler(new MyClientHandler());        //设置业务处理handler
-            ChannelFuture future = bootstrap.connect(host, port).sync();//建立远程连接
-            future.channel().closeFuture().sync(); //关闭连接
+            //创建工作线程组
+            worker = new NioEventLoopGroup();
+            //开启client客户端
+            Bootstrap bootstrap = new Bootstrap();
+            //设置工作线程组
+            bootstrap.group(worker)
+                    //设置socket通道
+                    .channel(NioSocketChannel.class)
+                    //设置业务处理handler
+                    .handler(new MyClientHandler());
+            //建立远程连接
+            ChannelFuture future = bootstrap.connect(host, port).sync();
+            //关闭连接
+            future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            if (worker != null) worker.shutdownGracefully();//关闭工作线程
+            if (worker != null) {
+                //关闭工作线程
+                worker.shutdownGracefully();
+            }
         }
     }
 

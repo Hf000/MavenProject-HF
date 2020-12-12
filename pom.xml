@@ -13,6 +13,7 @@
         <module>springDataMongoDB</module>
         <module>dubbo-consumer</module>
         <module>dubbo-provider</module>
+        <module>dubbo-interface</module>
     </modules>
 
 

@@ -17,19 +17,33 @@ public class MyRpcServer {
         EventLoopGroup boss = null;
         EventLoopGroup worker = null;
         try {
-            boss = new NioEventLoopGroup(1); //创建主线程, 不处理任何业务, 只负责客户端连接
-            worker = new NioEventLoopGroup(); //创建工作线程,  默认是CPU核数*2
-            ServerBootstrap serverBootstrap = new ServerBootstrap();//服务器启动类
-            serverBootstrap.group(boss, worker)         //设置工作线程组
-                    .channel(NioServerSocketChannel.class)  //配置server通道
-                    .childHandler(new MyChannelInitializer());//设置worker线程的处理器
-            ChannelFuture future = serverBootstrap.bind(port).sync();//绑定端口
-            future.channel().closeFuture().sync();//等待服务端监听端口关闭
+            //创建主线程, 不处理任何业务, 只负责客户端连接
+            boss = new NioEventLoopGroup(1);
+            //创建工作线程,  默认是CPU核数*2
+            worker = new NioEventLoopGroup();
+            //服务器启动类
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            //设置工作线程组
+            serverBootstrap.group(boss, worker)
+                    //配置server通道
+                    .channel(NioServerSocketChannel.class)
+                    //设置worker线程的处理器
+                    .childHandler(new MyChannelInitializer());
+            //绑定端口
+            ChannelFuture future = serverBootstrap.bind(port).sync();
+            //等待服务端监听端口关闭
+            future.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (boss != null) boss.shutdownGracefully();  //关闭主线程
-            if (worker != null) worker.shutdownGracefully(); //关闭工作线程
+            if (boss != null) {
+                //关闭主线程
+                boss.shutdownGracefully();
+            }
+            if (worker != null) {
+                //关闭工作线程
+                worker.shutdownGracefully();
+            }
         }
     }
 
