@@ -4,7 +4,6 @@ import com.hufei.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Autowired
+    @Autowired(required = false)
     private IUserService userService;
 
+//    @GetMapping(value = "/findTest/{userId}", produces="text/html;charset=UTF-8")
     @GetMapping(value = "/findTest/{userId}")
-    @ResponseBody
     public String method(@PathVariable Integer userId) {
         String now = userService.getNow();
-        return now;
+        return "查询当前时间" + now;
     }
 
 }
