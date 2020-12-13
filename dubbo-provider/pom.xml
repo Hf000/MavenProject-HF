@@ -179,23 +179,15 @@
         <!-- 如果不配置mybatis的配置文件会漏掉 -->
         <!-- 注意：配置了此方式，原来的默认的资源拷贝行为将无效 -->
         <resources>
-            <resource>
-                <!--指定从src/main/java目录下去拷贝文件到target中-->
-                <directory>src/main/webapp</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <!--指定从src/main/java目录下去拷贝文件到target中-->
+            <!--指定从src/main/java目录下去拷贝文件到target中-->
+           <!-- <resource>
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
                 </includes>
                 <filtering>false</filtering>
-            </resource>
+            </resource>-->
             <!--//如果需要copy 资源目录中的文件 需要再配置一个resource标签-->
         </resources>
         <!--插件依赖-->

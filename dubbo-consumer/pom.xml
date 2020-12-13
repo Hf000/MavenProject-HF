@@ -116,26 +116,6 @@
     </dependencies>
 
     <build>
-        <finalName>dubbo-consumer</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/webapp</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <!--指定从src/main/java目录下去拷贝文件到target中-->
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <!--//如果需要copy 资源目录中的文件 需要再配置一个resource标签-->
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
