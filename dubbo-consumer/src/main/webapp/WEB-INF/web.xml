@@ -20,8 +20,8 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--配置字符集过滤器-->
-    <filter>
+    <!--配置字符集过滤器，前后端交互，告知以什么字符集解析数据，response返回给页面时需要设置contentType才能生效-->
+   <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>

@@ -18,10 +18,12 @@ public class UserController {
     @Autowired(required = false)
     private IUserService userService;
 
-//    @GetMapping(value = "/findTest/{userId}", produces="text/html;charset=UTF-8")
-    @GetMapping(value = "/findTest/{userId}")
-    public String method(@PathVariable Integer userId) {
+    //这种配置produces的方式优于<mvc:annotation-driven />注解驱动方式配置消息转换器生效
+//    @GetMapping(value = "/findTest/{userId}", produces="text/json;charset=UTF-8")
+    @GetMapping(value = "/findTest/{userId}/{name}")
+    public String method(@PathVariable Integer userId, @PathVariable String name) {
         String now = userService.getNow();
+        System.out.println("userinfo===>" + name + userId);
         return "查询当前时间" + now;
     }
 
