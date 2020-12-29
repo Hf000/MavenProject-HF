@@ -10,11 +10,11 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <!--开启组件扫描-->
-    <context:component-scan base-package="com.hufei.controller"></context:component-scan>
+    <context:component-scan base-package="com.hufei.controller"/>
     <!--配置springmvc的注解驱动：注册默认处理请求-->
     <mvc:annotation-driven >
         <!-- 消息转换器,将response返回给页面的中文转换成指定字符集，这种转换器优先级低于直接在请求方法上设置produces属性，指定返回的contentType -->
-        <mvc:message-converters register-defaults="true">
+        <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
             </bean>
@@ -22,19 +22,19 @@
     </mvc:annotation-driven>
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
     <!--放行静态资源-->
-    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
-    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
     <!--<mvc:default-servlet-handler></mvc:default-servlet-handler>-->
     <!--配置多媒体文件上传解析器 id一定要写,是根据id去找到这个解析器的-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!--上传的最大文件大小限制-->
-        <property name="maxUploadSize" value="5242880"></property>
+        <property name="maxUploadSize" value="5242880"/>
         <!--设置编码utf-8-->
-        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="defaultEncoding" value="utf-8"/>
     </bean>
     <!-- 引入dubbo服务 -->
     <!-- 1.application指定服务的应用是谁-->
@@ -44,8 +44,8 @@
         <dubbo:parameter key="qos.port" value="33330"/>
     </dubbo:application>
     <!-- 2.配置连接注册中心的地址和端口以及使用的协议：zookeeper-->
-    <dubbo:registry address="127.0.0.1" protocol="zookeeper" port="2181"></dubbo:registry>
+    <dubbo:registry address="127.0.0.1" protocol="zookeeper" port="2181"/>
     <!-- 3.引入服务-->
-    <dubbo:reference interface="com.hufei.service.IUserService"  id="userService" timeout="1000000"></dubbo:reference>
+    <dubbo:reference interface="com.hufei.service.IUserService"  id="userService" timeout="1000000"/>
 
 </beans>
