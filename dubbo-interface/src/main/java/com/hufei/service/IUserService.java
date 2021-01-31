@@ -1,5 +1,9 @@
 package com.hufei.service;
 
+import com.hufei.pojo.UserVO;
+
+import java.util.List;
+
 /**
  * @description:
  * @author: hufei
@@ -10,4 +14,5 @@ public interface IUserService {
 
     String getNow();
 
+    List<UserVO> findUserList();
 }

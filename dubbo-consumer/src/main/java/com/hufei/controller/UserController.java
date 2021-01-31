@@ -1,10 +1,13 @@
 package com.hufei.controller;
 
+import com.hufei.pojo.UserVO;
 import com.hufei.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @description: 控制层
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Autowired(required = false)
+    @Autowired
     private IUserService userService;
 
     //这种配置produces的方式优于<mvc:annotation-driven />注解驱动方式配置消息转换器生效
@@ -25,6 +28,12 @@ public class UserController {
         String now = userService.getNow();
         System.out.println("userinfo===>" + name + userId);
         return "查询当前时间" + now;
+    }
+
+    @GetMapping(value = "/findUser")
+    public List<UserVO> findUserList() {
+        List<UserVO> userList = userService.findUserList();
+        return userList;
     }
 
 }

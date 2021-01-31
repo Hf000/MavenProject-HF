@@ -18,6 +18,9 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
             </bean>
+            <!--<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                <property name="objectMapper" ref="customObjectMapper"></property>
+            </bean>-->
         </mvc:message-converters>
     </mvc:annotation-driven>
     <!--配置视图解析器-->
@@ -41,7 +44,7 @@
     <dubbo:application name="dubbo-consumer">
         <dubbo:parameter key="qos.enable" value="false"/>
         <dubbo:parameter key="qos.accept.foreign.ip" value="false"/>
-        <dubbo:parameter key="qos.port" value="33330"/>
+        <dubbo:parameter key="qos.port" value="33332"/>
     </dubbo:application>
     <!-- 2.配置连接注册中心的地址和端口以及使用的协议：zookeeper-->
     <dubbo:registry address="127.0.0.1" protocol="zookeeper" port="2181"/>

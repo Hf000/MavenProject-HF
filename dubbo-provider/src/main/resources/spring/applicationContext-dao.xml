@@ -23,9 +23,9 @@
         <!-- 数据库连接池 -->
         <property name="dataSource" ref="dataSource" />
         <!-- 加载mybatis的全局配置文件 -->
-        <!--<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />-->
+        <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
         <!--指定mapper.xml文件位置-->
-        <!--<property name="mapperLocations" value="classpath:com/hufei/mapper/*.xml"/>-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
     <!--配置mapper扫描器,前提条件:就是mapper接口和mapper.xml的名字要一致,并且要放在同一目录文件下-->

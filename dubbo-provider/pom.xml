@@ -16,6 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version><!--指定jdk版本为1.8-->
         <spring.version>5.2.11.RELEASE</spring.version>
         <dubbo.version>2.6.9</dubbo.version>
         <zookeeper.version>3.6.2</zookeeper.version>
@@ -172,6 +173,11 @@
             <artifactId>log4j-web</artifactId>
             <version>${log4j.version}</version>
         </dependency>-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
