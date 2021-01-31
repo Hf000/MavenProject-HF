@@ -8,3 +8,7 @@ personal project
     2. 注意：maven管理spring + springMVC + mybatis + dubbo项目打war包部署在tomcat时，需要将dubbo接口提供项目分别依赖到dubbo服务和消费端工程再部署到tomcat启动。
         1. 服务或消费war需要依赖接口工程：ctrl+shift+alt+s，设置当前项目的Artifacts，选择当前项目的war，然后选择dubbo接口提供工程右键点击put into output root即可。
     3. 注意：springMVC返回json到前端，需要依赖jackson相关依赖才能自动转换成json，否则会报错。
+5. zookeeper3.6.2使用注意事项：启动默认会占用8080和38819端口。
+6. dubbo2.6.9使用注意事项：需要设置QOS服务参数，详情见xml配置。
+7. spring4.2以上版本，采用log4j2日志配置。
+8. pagehelper5.0以上版本plugins配置拦截器PageInterceptor而不是PageHelper，并且不用指定数据库类型。
